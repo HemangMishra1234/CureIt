@@ -27,5 +27,5 @@ class EditThemeViewModel(private val repository: ThemeRepository) : ViewModel() 
             return ThemeEntity(0,"Enter Labels In the Edit Section","Default")
     }
 
-    fun addNewData()
+//    fun addNewData()
 }
