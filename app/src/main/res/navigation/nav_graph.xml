@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/editThemeFragment">
+    <fragment
+        android:id="@+id/moodTrack"
+        android:name="com.example.finflow.moodStatistics.MoodTrack"
+        android:label="MoodTrack" >
+        <action
+            android:id="@+id/action_moodTrack_to_editThemeFragment"
+            app:destination="@id/editThemeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editThemeFragment"
+        android:name="com.example.finflow.moodStatistics.EditThemeFragment"
+        android:label="fragment_edit_theme"
+        tools:layout="@layout/fragment_edit_theme" >
+        <action
+            android:id="@+id/action_editThemeFragment_to_addNewThemeFragment"
+            app:destination="@id/addNewThemeFragment" />
+        <argument
+            android:name="theme"
+            app:argType="com.example.finflow.moodStatistics.ThemeEntity"
+            app:nullable="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewThemeFragment"
+        android:name="com.example.finflow.moodStatistics.AddNewThemeFragment"
+        android:label="AddNewThemeFragment" >
+        <action
+            android:id="@+id/action_addNewThemeFragment_to_editThemeFragment"
+            app:destination="@id/editThemeFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="purple_200">#291947</color>
+    <color name="titleBarColor">#35215C</color>
+    <color name="red">#FF0000</color>
+<color name="blue">#0000FF</color>
+<color name="green">#008000</color>
+<color name="yellow">#FFFF00</color>
+<color name="orange">#FFA500</color>
+<color name="purple">#800080</color>
+<color name="cyan">#00FFFF</color>
+<color name="magenta">#FF00FF</color>
+<color name="lime">#00FF00</color>
+<color name="pink">#FFC0CB</color>
+
+
+        <color name="color_beginner">#6C6C6B</color>
+        <color name="color_novice">#4CAF50</color>
+        <color name="color_rookie">#FF5722</color>
+        <color name="color_apprentice">#F44336</color>
+        <color name="color_practitioner">#E91E63</color>
+        <color name="color_skilled">#9C27B0</color>
+        <color name="color_specialist">#673AB7</color>
+        <color name="color_expert">#3F51B5</color>
+        <color name="color_master">#2196F3</color>
+        <color name="color_elite">#03A9F4</color>
+        <color name="color_champion">#00BCD4</color>
+        <color name="color_hero">#009688</color>
+        <color name="color_superhero">#FF9800</color>
+        <color name="color_legend">#8BC34A</color>
+        <color name="color_mythic">#CDDC39</color>
+        <color name="color_divine">#FFEB3B</color>
+        <color name="color_immortal">#FFC107</color>
+        <color name="color_godlike">#FF9800</color>
+        <color name="color_ascendant">#FF5722</color>
+        <color name="color_transcendent">#F44336</color>
+        <color name="color_eternal">#E91E63</color>
+        <color name="color_infinite">#9C27B0</color>
+        <color name="color_ultimate">#673AB7</color>
+        <color name="color_paramount">#3F51B5</color>
+        <color name="color_supreme">#2196F3</color>
+        <color name="color_unstoppable">#03A9F4</color>
+        <color name="color_invincible">#00BCD4</color>
+        <color name="color_imperious">#009688</color>
+        <color name="color_sovereign">#4CAF50</color>
+        <color name="color_omnipotent">#8BC34A</color>
+
+
+        <array name="level_colors">
+            <item>@color/color_beginner</item>
+            <item>@color/color_novice</item>
+            <item>@color/color_rookie</item>
+            <item>@color/color_apprentice</item>
+            <item>@color/color_practitioner</item>
+            <item>@color/color_skilled</item>
+            <item>@color/color_specialist</item>
+            <item>@color/color_expert</item>
+            <item>@color/color_master</item>
+            <item>@color/color_elite</item>
+            <item>@color/color_champion</item>
+            <item>@color/color_hero</item>
+            <item>@color/color_superhero</item>
+            <item>@color/color_legend</item>
+            <item>@color/color_mythic</item>
+            <item>@color/color_divine</item>
+            <item>@color/color_immortal</item>
+            <item>@color/color_godlike</item>
+            <item>@color/color_ascendant</item>
+            <item>@color/color_transcendent</item>
+            <item>@color/color_eternal</item>
+            <item>@color/color_infinite</item>
+            <item>@color/color_ultimate</item>
+            <item>@color/color_paramount</item>
+            <item>@color/color_supreme</item>
+            <item>@color/color_unstoppable</item>
+            <item>@color/color_invincible</item>
+            <item>@color/color_imperious</item>
+            <item>@color/color_sovereign</item>
+            <item>@color/color_omnipotent</item>
+        </array>
+
+
+</resources>

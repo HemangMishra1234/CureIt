@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="Widget.Theme.FinFlow.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+    <style name="fab_menu_rounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="color">@color/titleBarColor</item>
+        <item name="android:src">@drawable/baseline_menu_24</item>
+    </style>
+</resources>
