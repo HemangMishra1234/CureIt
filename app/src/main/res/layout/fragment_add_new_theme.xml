@@ -25,7 +25,7 @@
 
 
             <TextView
-                android:id="@+id/textView848"
+                android:id="@+id/Question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -51,8 +51,8 @@
                 android:textColorHint="@color/color_beginner"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                app:layout_constraintStart_toStartOf="@+id/textView848"
-                app:layout_constraintTop_toBottomOf="@+id/textView848" />
+                app:layout_constraintStart_toStartOf="@+id/Question"
+                app:layout_constraintTop_toBottomOf="@+id/Question" />
 
             <TextView
                 android:id="@+id/textView17"

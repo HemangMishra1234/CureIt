@@ -20,6 +20,7 @@ import com.example.finflow.debitAppLogic.Calculations
 import com.example.finflow.debitAppLogic.Logic
 import com.example.finflow.goals.GoalsFragment
 import com.example.finflow.moodStatistics.EditThemeFragment
+import com.example.finflow.moodStatistics.MoodTrack
 import com.example.finflow.startActivity.StartActivityViewModel
 import com.example.finflow.startActivity.StartActivityViewModelFactory
 import com.example.finflow.statistics.StatisticsFragment
@@ -93,7 +94,7 @@ class StartActivity : AppCompatActivity() {
 
                   R.id.nav_pomo->{
                       drawerLayout.closeDrawers()
-                      replaceFragment(EditThemeFragment(),it.title.toString())
+                      replaceFragment(MoodTrack(),it.title.toString())
                   }
                 }
 

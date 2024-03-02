@@ -25,7 +25,7 @@
 
 
             <TextView
-                android:id="@+id/textView848"
+                android:id="@+id/Question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="68dp"

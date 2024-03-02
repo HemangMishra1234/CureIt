@@ -23,7 +23,7 @@ class MoodRepository(val dao: MoodDAO) {
         return dao.updateEntity(entity)
     }
 
-    suspend fun getMoodByDate(dateVal: String): LiveData<MoodEntity>{
-        return dao.getMoodByDate(dateVal)
+    suspend fun getMoodByDate(dateVal: String, title: String): LiveData<MoodEntity>{
+        return dao.getMoodByDate(dateVal, title)
     }
 }
