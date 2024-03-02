@@ -25,6 +25,6 @@ interface MoodDAO {
     @Query("SELECT * FROM MoodStatsTable ORDER BY date DESC")
     fun getAllMoods() :LiveData<List<MoodEntity>>
 
-    @Query("SELECT * FROM MoodStatsTable WHERE date = :date")
-    fun getMoodByDate(date: String): LiveData<MoodEntity>
+    @Query("SELECT * FROM MoodStatsTable WHERE date = :dateVal")
+    fun getMoodByDate(dateVal: String): LiveData<MoodEntity>
 }

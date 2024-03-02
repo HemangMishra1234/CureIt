@@ -2,6 +2,7 @@ package com.example.finflow.moodStatistics
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.finflow.debitAppLogic.Logic
 import kotlinx.coroutines.launch
 
 class EditThemeViewModel(private val repository: ThemeRepository) : ViewModel() {
@@ -27,5 +28,10 @@ class EditThemeViewModel(private val repository: ThemeRepository) : ViewModel() 
             return ThemeEntity(0,"Enter Labels In the Edit Section","Default")
     }
 
-//    fun addNewData()
+    fun record(value: Int, themeEntity: ThemeEntity){
+        val date: String = Logic().currentDate()
+        viewModelScope.launch {
+//            repository.getMoodByDate(date)
+        }
+    }
 }

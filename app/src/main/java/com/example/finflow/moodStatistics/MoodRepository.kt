@@ -1,5 +1,6 @@
 package com.example.finflow.moodStatistics
 
+import androidx.lifecycle.LiveData
 import com.example.finflow.transactionHistory.TransEntity
 
 class MoodRepository(val dao: MoodDAO) {
@@ -20,5 +21,9 @@ class MoodRepository(val dao: MoodDAO) {
 
     suspend fun update(entity: MoodEntity){
         return dao.updateEntity(entity)
+    }
+
+    suspend fun getMoodByDate(dateVal: String): LiveData<MoodEntity>{
+        return dao.getMoodByDate(dateVal)
     }
 }

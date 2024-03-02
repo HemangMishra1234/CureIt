@@ -14,6 +14,14 @@ class Logic {
         val formattedDate = dateFormat.format(current).toString()
         return formattedDate
     }
+    fun currentDate():String{
+        //Get the current Date
+        val current : Date = Calendar.getInstance().time
+        //Format this date and time
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val formattedDate = dateFormat.format(current).toString()
+        return formattedDate
+    }
 
     fun formatAmountInCrores(amount: Float): String {
         val crores = amount / 10000000.0
