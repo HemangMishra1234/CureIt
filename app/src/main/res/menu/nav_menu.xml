@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn = "navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        >
         <item
-            android:id="@+id/nav_home"
-            android:title="Home"/>
+            android:id="@+id/nav_dashboard"
+            android:title="Dashboard"/>
         <item
-            android:id="@+id/nav_pomo"
-            android:title="Pomodoro"/>
+            android:id="@+id/nav_moodTrack"
+            android:title="Mood Track"/>
 
         <item
             android:id="@+id/nav_debitApps"
@@ -23,21 +24,14 @@
             android:title="Credit Activities"/>
 
         <item
-            android:id="@+id/nav_urgent"
-            android:title="Urgent Access"
-            />
-        <item
             android:id="@+id/nav_habits"
             android:title="Habits"/>
-        <item
-            android:id="@+id/nav_dailytasks"
-            android:title="Daily Tasks"/>
         <item
             android:id="@+id/nav_transaction"
             android:title="Transaction history"/>
         <item
-            android:title="Preferences"
-            android:id="@+id/nav_preferences"/>
+            android:title="Statistics"
+            android:id="@+id/nav_stats"/>
 
 
     </group>

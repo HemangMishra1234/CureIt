@@ -11,4 +11,16 @@
         <item name="color">@color/titleBarColor</item>
         <item name="android:src">@drawable/baseline_menu_24</item>
     </style>
+
+        <style name="MyMenuStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <item name="android:background">@color/purple_200</item>
+            <item name="android:textStyle">bold</item>
+
+        </style>
+    
+    <style name = "TextStyleMenu" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

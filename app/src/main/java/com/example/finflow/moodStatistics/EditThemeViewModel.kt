@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class EditThemeViewModel(private val repository: ThemeRepository) : ViewModel() {
     var themes = repository.themes
-    var presentPosition = 0;
+    var presentPosition = 0
 
     fun insert(entity: ThemeEntity) = viewModelScope.launch {
         repository.insert(entity)
@@ -29,22 +29,6 @@ class EditThemeViewModel(private val repository: ThemeRepository) : ViewModel() 
         return themes.value!![pos]
         else
             return ThemeEntity(0,"Enter Labels In the Edit Section","Default")
-    }
-
-    fun record(value: Int, themeEntity: ThemeEntity, mrepository: MoodRepository){
-        val date: String = Logic().currentDate()
-        viewModelScope.launch {
-            var entity = mrepository.getMoodByDate(date, themeEntity.title).value
-            if(entity == null){
-                entity = MoodEntity(0, date, themeEntity.title, 1, value)
-                mrepository.insert(entity)
-            }
-            else{
-                entity.count += 1
-                entity.average = (entity.average * (entity.count - 1) + value)/(entity.count)
-                mrepository.update(entity)
-            }
-        }
     }
 
     fun checkIfCanContinue(pos: Int): Boolean{

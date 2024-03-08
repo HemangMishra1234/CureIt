@@ -43,7 +43,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Hello Hemang"
+                        android:text="Hello User"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -93,7 +93,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/mainbalance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -107,7 +107,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/fractionalpart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -115,9 +115,9 @@
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-                        app:layout_constraintStart_toEndOf="@+id/textView12"
-                        app:layout_constraintTop_toTopOf="@+id/textView12"
+                        app:layout_constraintBottom_toBottomOf="@+id/mainbalance"
+                        app:layout_constraintStart_toEndOf="@+id/mainbalance"
+                        app:layout_constraintTop_toTopOf="@+id/mainbalance"
                         app:layout_constraintVertical_bias="0.531" />
 
                     <LinearLayout
@@ -136,6 +136,7 @@
                             android:orientation="vertical">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/dashboard_add_button"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_margin="4dp"
@@ -175,6 +176,7 @@
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
+                                android:id="@+id/dashboard_enjoy_button"
                                 android:layout_margin="4dp"
                                 android:background="@drawable/top_button_main">
 
@@ -213,6 +215,7 @@
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
+                                android:id="@+id/dashboard_wallet_button"
                                 android:layout_margin="4dp"
                                 android:background="@drawable/top_button_main">
 
@@ -233,7 +236,7 @@
                                 android:id="@+id/textView1441"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="15dp"
+                                android:layout_marginStart="15dp"
                                 android:layout_marginTop="8dp"
                                 android:text="Wallet"
                                 android:textAlignment="center"
@@ -251,6 +254,7 @@
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_margin="4dp"
+                                android:id="@+id/dashboard_stats_button"
                                 android:background="@drawable/top_button_main">
 
                                 <ImageView

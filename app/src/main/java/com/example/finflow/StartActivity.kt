@@ -52,7 +52,7 @@ class StartActivity : AppCompatActivity() {
       //  Calculations(this).saveNewBalanceInSharedPref(0.0F)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        replaceFragment(EditThemeFragment(),"Dashboard Fragment")
+        replaceFragment(DashboardFragment(),"Dashboard Fragment")
 
         val navView: NavigationView = binding.navView
         navView.setNavigationItemSelectedListener {
@@ -60,7 +60,7 @@ class StartActivity : AppCompatActivity() {
 
 
               when(it.itemId){
-                    R.id.nav_home->{
+                    R.id.nav_dashboard->{
                         replaceFragment(DashboardFragment(),it.title.toString())
                     }
 
@@ -87,12 +87,12 @@ class StartActivity : AppCompatActivity() {
                       startActivity(intent)
                   }
 
-                  R.id.nav_preferences->{
+                  R.id.nav_stats->{
                       drawerLayout.closeDrawers()
                       replaceFragment(StatisticsFragment(15),it.title.toString())
                   }
 
-                  R.id.nav_pomo->{
+                  R.id.nav_moodTrack->{
                       drawerLayout.closeDrawers()
                       replaceFragment(MoodTrack(),it.title.toString())
                   }
@@ -113,19 +113,18 @@ class StartActivity : AppCompatActivity() {
         }
 
         //   navHeaderBinding.balanceNavMenu.text = Logic().formatAmountInCrores(Calculations(this).getBalanceInSharedPref())
-        try {
-            val navController = this.findNavController(R.id.nav_host_fragment)
-            // NavController is set properly
-        } catch (e: IllegalStateException) {
-            Log.e("StartActivity", "NavController is not set properly")
-        }
+//        try {
+//            val navController = this.findNavController(R.id.nav_host_fragment)
+//            // NavController is set properly
+//        } catch (e: IllegalStateException) {
+//            Log.e("StartActivity", "NavController is not set properly")
+//        }
 
     }
-    private fun replaceFragment(fragment: Fragment, title: String){
+    private fun replaceFragment(fragment: Fragment, title: String = "Default"){
         val fragTrans = supportFragmentManager.beginTransaction()
         fragTrans.replace(R.id.nav_host_fragment, fragment)
         fragTrans.commit()
-
         drawerLayout.closeDrawers()
         setTitle(title)
     }

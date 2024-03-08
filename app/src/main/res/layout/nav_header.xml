@@ -5,40 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
         android:layout_margin="4sp"
-        android:layout_height="150dp">
+        android:background="@color/purple_200">
+
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:text="Balance = Rs."
-            app:layout_constraintBaseline_toBaselineOf="@+id/balance_nav_menu"
-            app:layout_constraintStart_toStartOf="parent" />
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="150sp"
             android:layout_height="100sp"
-            android:src="@drawable/finlflowtextview"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/bannericon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.023"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.04" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/balance_nav_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:text="TextView"
             app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toTopOf="@+id/textView8" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

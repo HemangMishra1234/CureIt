@@ -20,17 +20,27 @@ class MoodTrack : Fragment() {
     }
 
     private lateinit var viewModel: EditThemeViewModel
+    private lateinit var viewModelMood: MoodViewModel
     private lateinit var binding: FragmentMoodTrackBinding
+    private lateinit var moodRepository: MoodRepository
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val factory = EditThemeViewModelFactory(getThemeRepoObject())
+        viewModel = ViewModelProvider(this, factory)[EditThemeViewModel::class.java]
+        val factory2 = MoodViewModelFactory(getMoodTrackRepoObject())
+        viewModelMood = ViewModelProvider(this,factory2)[MoodViewModel::class.java]
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_mood_track,container,false)
-        val factory = EditThemeViewModelFactory(getThemeRepoObject())
-        viewModel = ViewModelProvider(this, factory)[EditThemeViewModel::class.java]
-        binding.lifecycleOwner = activity
-
+       binding.lifecycleOwner = activity
+        val dao = MoodDatabase.getInstance(requireContext()).moodDaoObject
+        moodRepository =  MoodRepository(dao)
         viewModel.themes.observe(viewLifecycleOwner, Observer {themes ->
         //checking if labels are empty
         if(viewModel.checkIfEmpty()){
@@ -68,7 +78,7 @@ class MoodTrack : Fragment() {
     }
 
 fun recordMood(value: Int, themeEntity: ThemeEntity){
-        viewModel.record(value, themeEntity, getMoodTrackRepoObject())
+        viewModelMood.record(value, themeEntity)
     }
 
     fun initUI(): ThemeEntity{

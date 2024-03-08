@@ -11,7 +11,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/purple_200">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,6 +29,7 @@
             <TextView
                 android:id="@+id/netChange"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
                 android:hint="Net Change"
@@ -69,6 +71,7 @@
                 android:id="@+id/title1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="Net Change"
                 app:layout_constraintBottom_toTopOf="@+id/guideline"
                 app:layout_constraintEnd_toStartOf="@+id/title2"
@@ -80,6 +83,7 @@
             <TextView
                 android:id="@+id/title2"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:text="Credit Average"
                 app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -93,6 +97,7 @@
                 android:id="@+id/title3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="Debit Average"
                 app:layout_constraintBottom_toTopOf="@+id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -129,6 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:textColor="@color/white"
                 android:layout_marginTop="16dp"
                 android:text="Credit Graph"
                 app:layout_constraintStart_toStartOf="parent"
@@ -155,6 +161,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Debit Graph"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -177,6 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:textColor="@color/white"
                 android:layout_marginTop="16dp"
                 android:text="Total Gain"
                 app:layout_constraintStart_toStartOf="parent"
@@ -200,6 +208,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:textColor="@color/white"
                 android:layout_marginTop="16dp"
                 android:text="Hours Worked"
                 app:layout_constraintStart_toStartOf="parent"

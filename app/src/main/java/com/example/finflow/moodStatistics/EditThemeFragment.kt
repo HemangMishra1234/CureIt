@@ -37,7 +37,6 @@ class EditThemeFragment : Fragment() {
             val navController = this.findNavController()
             Log.e("Current Destination",navController.currentDestination.toString())
             navController.navigate(R.id.action_editThemeFragment_to_addNewThemeFragment, bundle)
-
         }
         viewModel = ViewModelProvider(this, factory)[EditThemeViewModel::class.java]
         binding.lifecycleOwner = activity
