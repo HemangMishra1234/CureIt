@@ -16,8 +16,10 @@ import com.example.finflow.dashboard.DashboardViewModelFactory
 import com.example.finflow.databinding.FragmentDashboardBinding
 import com.example.finflow.databinding.FragmentHomeBinding
 import com.example.finflow.debitAppLogic.Calculations
+import com.example.finflow.debitAppLogic.Logic
 import com.example.finflow.goals.GoalsFragment
 import com.example.finflow.goals.LevelLogic
+import com.example.finflow.room.DebitAppFragment
 import com.example.finflow.statistics.StatisticsFragment
 import com.example.finflow.transactionHistory.TransactionFragment
 
@@ -70,8 +72,7 @@ class DashboardFragment : Fragment() {
 
 
     fun initializingAmountUI(amt: Float){
-        bind.mainbalance.text = amt.toLong().toString()
-        bind.fractionalpart.text = (amt - amt.toLong()).toLong().toString()
+        bind.mainbalance.text = Logic().formatAmountInCrores(amt)
     }
 
     fun getAmount(){
@@ -86,7 +87,8 @@ class DashboardFragment : Fragment() {
             replaceFragment(GoalsFragment())
         }
         bind.dashboardEnjoyButton.setOnClickListener(){
-            replaceFragment(GoalsFragment())
+            replaceFragment(DebitAppFragment())
+
         }
         bind.dashboardWalletButton.setOnClickListener(){
             replaceFragment(TransactionFragment())

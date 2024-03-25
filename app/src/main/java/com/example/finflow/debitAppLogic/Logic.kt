@@ -56,7 +56,7 @@ class Logic {
         if(presentTimeSpent/totalTimeSpent *100.0F >= expectedPercent)
             return ""
         val recoveryTime = -(totalTimeSpent* expectedPercent - presentTimeSpent*100.0F)/ (expectedPercent - 100.0F)
-        return "Recovery time = ${formatFloatToTwoDecimalPlaces(recoveryTime)} min"
+        return "Recovery time: ${convertMinutesToHoursString((recoveryTime).toLong())}"
     }
 
     fun convertMinutesToHoursString(minutes: Long): String {

@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient_background"
+        android:background="@color/purple_200"
         tools:context=".MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -75,7 +75,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="33dp"
-                android:onClick="@{()->input_DebitApps.saveOrUpdate()}"
                 android:text="@={input_DebitApps.saveOrUpdateButton}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -85,14 +84,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:onClick="@{()->input_DebitApps.clearAllOrDelete()}"
                 android:text="@={input_DebitApps.clearAllOrDeleteButton}"
                 app:layout_constraintStart_toStartOf="@+id/save_button"
                 app:layout_constraintTop_toBottomOf="@+id/save_button" />
 
             <Button
                 android:id="@+id/credit_button"
-                android:onClick="@{()->input_DebitApps.use()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Use"

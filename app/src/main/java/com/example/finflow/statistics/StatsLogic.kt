@@ -30,6 +30,40 @@ class StatsLogic {
         return filteredTransactions
     }
 
+    fun generateDayWiseHoursStudied(transactions: List<TransEntity>, days: Int = 7): ArrayList<Float>{
+        val l = filterTransactions(transactions, days)
+        val dateTimeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val dayFormat = SimpleDateFormat("yyyy-MM-dd")
+        val calendar = Calendar.getInstance()
+        var mp: MutableMap<String, Float> = mutableMapOf()
+
+        //Initialize the map with all days in the last "days" days set to 0
+        for (i in 0 until days) {
+            val day = dayFormat.format(calendar.time)
+            mp[day] = 0.0F
+            calendar.add(Calendar.DAY_OF_YEAR, -1)
+        }
+
+        for(et : TransEntity in l){
+            if(et.credit){
+                val dateTime = dateTimeFormat.parse(et.dateTime)
+                val day = dayFormat.format(dateTime)
+                var prevVal = mp[day]
+                if (prevVal != null) {
+                    mp[day]  = prevVal + et.time/(60.0F) // Add the amount to the total credit for that date
+                }
+            }
+        }
+        var ans = ArrayList<Float>()
+        for(pr in mp){
+            ans.add(pr.value)
+
+        }
+
+        ans.reverse()
+        return ans
+    }
+
     fun generateHoursStudied(transactions: List<TransEntity>, days: Int = 7, credit: Int): ArrayList<Long>{
         val l = filterTransactions(transactions, days)
         val dateTimeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")

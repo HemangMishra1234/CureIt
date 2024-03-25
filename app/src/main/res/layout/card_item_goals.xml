@@ -5,20 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
-        android:layout_margin="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="10dp"
-        android:shadowColor="@color/black"
         android:shadowRadius="15"
-        app:cardCornerRadius="15dp">
+        android:shadowColor="@color/white"
+        >
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/list_goal_cardConstraint"
             android:layout_width="match_parent"
             android:layout_height="88dp"
-            android:padding="4dp"
+            android:background="@color/purple_200"
+            android:paddingLeft="4dp"
+            android:paddingTop="4dp"
+            android:paddingRight="4dp"
             app:layout_constraintBottom_toTopOf="@+id/ouput_time_spent"
             app:layout_constraintTop_toTopOf="@+id/ouput_time_spent">
 
@@ -29,7 +31,9 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="4dp"
                 android:text="Name of Domain"
-                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,67 +43,71 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Time Spent"
+                android:textColor="@color/white"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.003"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/output_domain" />
 
+
             <TextView
                 android:id="@+id/output_rate_goals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="160dp"
+                android:layout_marginStart="184dp"
+                android:layout_marginTop="4dp"
                 android:text="Rate"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/output_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/print_expectperc"
-                app:layout_constraintHorizontal_bias="0.393"
-                app:layout_constraintStart_toEndOf="@+id/output_rate_goals"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.196" />
 
             <TextView
                 android:id="@+id/print_expectperc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
                 android:text="exp%"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.773"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.196" />
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/presPerc"
+                app:layout_constraintTop_toBottomOf="@+id/presPerc" />
 
             <TextView
                 android:id="@+id/presPerc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="pr%"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.968"
+                app:layout_constraintHorizontal_bias="0.922"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.196" />
+                app:layout_constraintVertical_bias="0.065" />
 
-            <TextView
-                android:id="@+id/recoveryTime"
+            <androidx.constraintlayout.widget.Barrier
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:barrierDirection="top" />
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintStart_toStartOf="@+id/presPerc"
+                app:layout_constraintTop_toBottomOf="@+id/presPerc" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/veryDarkGrey"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.616"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.803" />
+                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

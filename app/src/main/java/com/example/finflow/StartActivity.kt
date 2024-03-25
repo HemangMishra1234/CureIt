@@ -26,17 +26,25 @@ import com.example.finflow.startActivity.StartActivityViewModelFactory
 import com.example.finflow.statistics.StatisticsFragment
 import com.example.finflow.transactionHistory.TransactionFragment
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.Firebase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.database
 
 class StartActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
     lateinit var navHeaderBinding: NavHeaderBinding
     lateinit var binding: ActivityStart2Binding
+    private lateinit var fdatabase: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_start2)
 
+        fdatabase = Firebase.database.reference
         drawerLayout= binding.root as DrawerLayout
         toggle = ActionBarDrawerToggle(
             this@StartActivity,drawerLayout,R.string.open,R.string.close)
@@ -103,6 +111,8 @@ class StartActivity : AppCompatActivity() {
         navHeaderBinding = DataBindingUtil.inflate(layoutInflater, R.layout.nav_header, navView.getHeaderView(0) as ViewGroup?, false)
         navView.addHeaderView(navHeaderBinding.root)
 
+        //
+
 // Printing the balance in the console
         val sharedPref: SharedPreferences =
             this.getSharedPreferences(Calculations(this).SHARED_PREF_NAME, MODE_PRIVATE)
@@ -110,16 +120,28 @@ class StartActivity : AppCompatActivity() {
 
         viewModel.getMyLiveData().observe(this) { newValue ->
             navHeaderBinding.balanceNavMenu.text = Logic().formatAmountInCrores(newValue)
+
+            //Practising firebase here
+//            fdatabase.child("Balance").setValue(newValue)
         }
 
-        //   navHeaderBinding.balanceNavMenu.text = Logic().formatAmountInCrores(Calculations(this).getBalanceInSharedPref())
-//        try {
-//            val navController = this.findNavController(R.id.nav_host_fragment)
-//            // NavController is set properly
-//        } catch (e: IllegalStateException) {
-//            Log.e("StartActivity", "NavController is not set properly")
-//        }
+        //Changing the value if the balance at the firebase  changes
+        fdatabase.addValueEventListener(
+            object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val calculations = Calculations(this@StartActivity)
+                    val newBalance = snapshot.value as HashMap<*,*>
+                    Log.i("Firebase","$newBalance is the updated value")
+//                    calculations.saveNewBalanceInSharedPref((newBalance)["Balance"].toString().toFloat())
+                    Log.i("Firebase","Balance updated in the app")
+                }
 
+                override fun onCancelled(error: DatabaseError) {
+                    Log.w("Firebase", "Failed to read value")
+                }
+
+            }
+        )
     }
     private fun replaceFragment(fragment: Fragment, title: String = "Default"){
         val fragTrans = supportFragmentManager.beginTransaction()

@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
-                android:text="Dedicate"
+                android:text="Use"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +40,7 @@
                 app:visibility="@{inputGoals.visiUseBtn}" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/dashboard_add_edit_button"
+                android:id="@+id/save_button"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="4dp"
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="8dp"
-                android:text="Name"
+                android:text="App"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -99,17 +99,6 @@
                 app:layout_constraintHorizontal_bias="0.95"
                 app:layout_constraintStart_toEndOf="@+id/textView3" />
 
-            <TextView
-                android:id="@+id/totalTimeSpent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="60dp"
-                android:hint="TotalTimeSpent"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/quotebodygoals" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -123,7 +112,7 @@
                 app:visibility="@{inputGoals.recoveryTime}">
 
                 <NumberPicker
-                    android:id="@+id/timePickerForGoals"
+                    android:id="@+id/timePickerForDebitApps"
                     android:layout_width="75dp"
                     android:layout_height="118dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -131,17 +120,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/recoveryTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textColor="@color/white"
-                android:hint="Recovery Time"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/totalTimeSpent"
-                app:layout_constraintTop_toBottomOf="@+id/totalTimeSpent"
-                app:visibility="@{inputGoals.recoveryTime}" />
 
 
             <TextView
@@ -172,7 +150,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView3"
+            android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="1dp"
@@ -180,10 +158,8 @@
             android:layout_marginBottom="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

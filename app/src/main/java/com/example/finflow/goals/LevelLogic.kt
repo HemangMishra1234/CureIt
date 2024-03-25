@@ -23,7 +23,7 @@ class LevelLogic(private val context: Context) {
         //writing data into shared preferences
         val editor: SharedPreferences.Editor = sharedPref.edit()
         editor.putInt(SHARED_VALUE, level)
-        editor.commit()
+        editor.apply()
     }
 
     fun getLevelInSharedPref(): Int{

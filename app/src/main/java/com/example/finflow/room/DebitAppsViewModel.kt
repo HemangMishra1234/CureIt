@@ -23,8 +23,8 @@ class DebitAppsViewModel(private val repository: DebitAppsRepository ): ViewMode
     val debitApps = repository.allDebitApps
     lateinit var contextOfMain : Context
     lateinit var contextOfApplicaton:Context
-    private var isUpdateOrDelete = false
-    private lateinit var userToUpdateOrDelete: DebitApp
+     var isUpdateOrDelete = false
+     lateinit var userToUpdateOrDelete: DebitApp
 
     @Bindable
     val inputName = MutableLiveData<String?>()
@@ -71,29 +71,19 @@ class DebitAppsViewModel(private val repository: DebitAppsRepository ): ViewMode
         }
     }
 
-    fun clearAllOrDelete(){
-        if(isUpdateOrDelete){
-            delete(userToUpdateOrDelete)
-        }else{
-            clearAll()
-        }
-    }
 
     fun insert(debitApp: DebitApp) = viewModelScope.launch {
         repository.insert(debitApp)
     }
 
-    fun clearAll()= viewModelScope.launch {
-        repository.deleteAll()
-    }
 
-    fun use(){
-        if(isUpdateOrDelete && inputTime.value != null) {
+    fun use(time: Long){
+        if(isUpdateOrDelete && time != 0L) {
             //TODO("Implement the onClick of the use button")
             //Note the time
-            var time = inputTime.value!!.toLong()
             val cal = Calculations(contextOfMain)
-            val amt = cal.debitCalculations(time, rate = rate.value!!.toFloat())
+            val amt = cal.debitCalculations(time,if(userToUpdateOrDelete.rate==null)
+            0.0F else userToUpdateOrDelete.rate.toString().toFloat())
             //Updating the frequency
             var f = inputfreq.value!!.toInt()
             inputfreq.value = (++f).toString()
@@ -103,17 +93,17 @@ class DebitAppsViewModel(private val repository: DebitAppsRepository ): ViewMode
             viewModelScope.launch {
                 repository.insert(
                     TransEntity(
-                        0, inputName.value!!, rate.value!!.toFloat(), inputTime.value!!.toLong(),
+                        0, userToUpdateOrDelete.name.toString(),userToUpdateOrDelete.rate.toString().toFloat(), time,
                         Logic().currentDateAndTime(), false, amt
                     )
                 )
             }
             //send the notification
             val helper=NotificationHelper(contextOfMain)
-            helper.showNotification("Open ${inputName.value} opening for $time minutes")
+            helper.showNotification("Open ${userToUpdateOrDelete.name} opening for $time minutes")
             //update the UI
             saveOrUpdate()
-        }else if(inputTime.value != null){
+        }else if(time != 0L){
             Toast.makeText(contextOfMain,"SELECT THE APP FIRST",Toast.LENGTH_SHORT).show()
         }
         else{

@@ -23,6 +23,9 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 //Type for statistics. 1 for Last 7 days.
 class StatisticsFragment( val type: Int = 7) : Fragment() {
@@ -46,14 +49,25 @@ class StatisticsFragment( val type: Int = 7) : Fragment() {
         val barChartCre: BarChart = binding.workTargetGraph
         val barChartDeb: BarChart = binding.debitGraph
         val barChartNet: BarChart = binding.netGraph
+        val barChartHr: BarChart =  binding.hoursWorkedgraph
 
        // binding.statisticsViewModel = viewModel
        // binding.lifecycleOwner = activity
 
         viewModel.allTrans.observe(viewLifecycleOwner) { transactions ->
-            presentBarChart1(barChartCre,transactions)
-            presentBarChart1(barChartDeb,transactions, 0)
-            presentBarChart1(barChartNet, transactions,2)
+
+            CoroutineScope(Dispatchers.Default).launch {
+                presentBarChart1(barChartCre, transactions)
+            }
+            CoroutineScope(Dispatchers.Default).launch {
+                presentBarChart1(barChartDeb, transactions, 0)
+            }
+            CoroutineScope(Dispatchers.Default).launch {
+                presentBarChart1(barChartNet, transactions, 2)
+            }
+            CoroutineScope(Dispatchers.Default).launch {
+                presentBarChartHours(barChartHr, transactions)
+            }
             viewModel.initData()
         }
 
@@ -79,14 +93,8 @@ class StatisticsFragment( val type: Int = 7) : Fragment() {
     }
 
     fun presentBarChart1(barChart: BarChart, allTrans: List<TransEntity>?, credit: Int = 1){
-
-
         var entries = ArrayList<BarEntry>()
-
-
         val color = ContextCompat.getColor(requireContext(), R.color.pink)
-
-
         if(allTrans == null){
             Toast.makeText(activity, "No Transactions", Toast.LENGTH_SHORT).show()
         }else{
@@ -96,6 +104,44 @@ class StatisticsFragment( val type: Int = 7) : Fragment() {
             for(et in dayWise)
             {
                 entries.add(BarEntry(i++, et/10000000f))
+            }
+            val xAxis = barChart.xAxis
+            xAxis.position = XAxis.XAxisPosition.BOTTOM
+            xAxis.granularity = 1f
+            xAxis.setDrawLabels(true)
+            xAxis.valueFormatter = IndexAxisValueFormatter(labels)
+
+            val dataset = BarDataSet(entries,"Work")
+            dataset.valueTextColor = color
+            val data = BarData(dataset)
+
+            barChart.data = data
+        }
+        val color2 = ContextCompat.getColor(requireContext(), R.color.pink)
+
+        barChart.xAxis.textColor = color2
+        barChart.axisLeft.textColor = color2
+        barChart.axisRight.textColor = color2
+        barChart.legend.textColor = color2
+        barChart.description = null
+
+        barChart.invalidate()
+
+    }
+
+    fun presentBarChartHours(barChart: BarChart, allTrans: List<TransEntity>?, credit: Int = 1){
+        var entries = ArrayList<BarEntry>()
+        val color = ContextCompat.getColor(requireContext(), R.color.pink)
+        if(allTrans == null){
+            Toast.makeText(activity, "No Transactions", Toast.LENGTH_SHORT).show()
+        }else{
+            var dayWise = StatsLogic().generateDayWiseHoursStudied(allTrans, type)
+            val labels = StatsLogic().generateLabels(type)
+            var i: Float = 1f
+            for(et in dayWise)
+            {
+                if(et > 15) entries.add(BarEntry(i++, 15.0F))
+                else entries.add(BarEntry(i++, et))
             }
             val xAxis = barChart.xAxis
             xAxis.position = XAxis.XAxisPosition.BOTTOM

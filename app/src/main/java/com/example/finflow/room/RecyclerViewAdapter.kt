@@ -33,7 +33,6 @@ class MyDebitAppViewHolder(val binding: CardItemBinding): RecyclerView.ViewHolde
     fun bind(debitApp: DebitApp, clickListener:(DebitApp)-> Unit){
         binding.outputName.text = debitApp.name
         binding.ouputDesc.text = debitApp.desc
-        binding.outputId.text = debitApp.id.toString()
         binding.outputRate.text = debitApp.rate.toString()
         binding.printFreq.text = debitApp.freq.toString()
         binding.listDebitApp.setOnClickListener(){

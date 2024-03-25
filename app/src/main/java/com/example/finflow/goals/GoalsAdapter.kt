@@ -36,7 +36,6 @@ class MyGoalsViewHolder(val binding: CardItemGoalsBinding): RecyclerView.ViewHol
 
     fun bind(entity: GoalEntity, clickListener:(GoalEntity)-> Unit){
         binding.outputDomain.text = entity.domain
-        binding.outputId.text = entity.id.toString()
         binding.outputRateGoals.text = Logic().formatFloatToTwoDecimalPlaces(entity.rate)
         binding.presPerc.text = Logic().formatFloatToTwoDecimalPlaces(entity.presentPercent)
         binding.ouputTimeSpent.text = Logic().convertMinutesToHoursString(entity.presentTimeSpent)

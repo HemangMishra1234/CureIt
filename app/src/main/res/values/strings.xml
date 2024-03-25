@@ -13,7 +13,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open\n</string>
     <string name="close">Close</string>
-
+    <string name="goals_quote">Time management is about life management!</string>
+    <string name="time_spent_for_this_app">Time spent For This App</string>
 
     <string-array name="level_titles">
         <item>Newbie</item>
@@ -47,5 +48,6 @@
         <item>Sovereign</item>
         <item>Omnipotent</item>
     </string-array>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>

@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="10dp"
-        android:shadowColor="@color/black"
         android:shadowRadius="15"
-        app:cardCornerRadius="15dp">
+        android:shadowColor="@color/white"
+        >
 
 
 
@@ -19,6 +19,7 @@
             android:id="@+id/list_debit_app"
             android:layout_width="match_parent"
             android:layout_height="88dp"
+            android:background="@color/purple_200"
             android:padding="4dp"
             app:layout_constraintBottom_toTopOf="@+id/ouput_time_spent"
             app:layout_constraintTop_toTopOf="@+id/ouput_time_spent">
@@ -28,7 +29,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name of App"
-                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.042"
@@ -40,6 +43,8 @@
                 android:id="@+id/ouputDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12sp"
                 android:text="Description"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -48,35 +53,26 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.803" />
 
+
             <TextView
                 android:id="@+id/output_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rate"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.692"
+                app:layout_constraintHorizontal_bias="0.571"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.196" />
-
-            <TextView
-                android:id="@+id/output_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.56"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.196" />
+                app:layout_constraintVertical_bias="0.213" />
 
             <TextView
                 android:id="@+id/printFreq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Freqency"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.906"
